@@ -8,6 +8,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -83,7 +84,7 @@
       <div class="mb-3 row">
         <label for="hotel_id" class="col-sm-2 col-form-label">Hotel</label>
         <div class="col-sm-10">
-          <select class="form-control" name="hotel_id" required>
+          <select class="form-control" id="hotel_id" name="hotel_id" required>
             <option value="">Seçiniz</option>
             <?
             foreach ($hotels as $hid=>$hv){
@@ -141,5 +142,10 @@
     </div>
     </div>
 </div>
+<script language="javascript">
+	$('#hotel_id').on('change','',function(){
+    alert('merhaba');
+  });
+</script>
 </body>
 </html>
