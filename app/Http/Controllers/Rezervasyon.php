@@ -15,8 +15,10 @@ class Rezervasyon extends Controller
             $request->session()->put('user_id', $request->user_id);
             $users = DB::table('customers')->where('id',$request->user_id)->first();
         }
+
+        $hotels = DB::table('hotels')->get();
         
-        return view('ekle',['request'=>$request,'data'=>$users]);
+        return view('ekle',['request'=>$request,'data'=>$users,'hotels'=>$hotels]);
 
     }
 

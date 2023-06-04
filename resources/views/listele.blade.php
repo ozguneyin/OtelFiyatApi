@@ -57,7 +57,7 @@
         <div class="card-body">
 
             <strong>Sorgu URL:</strong> {{ URL::to('/') }}/api/rezervasyon-sorgula<br />
-            <strong>Parametreler:</strong> customer_id, örnek token: <?=sha1("ozguneyin")?>
+            <strong>Parametreler:</strong> customer_id, token: <?=sha1("ozguneyin")?>
 
         </div>
        </div>
