@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "hotel_id": 1,
+        "room_id": 1,
+        "price": 500.10,
+        "name": "Sadece Oda",
+        "open_for_sale": 1
+    },
+    {
+        "id": 2,
+        "hotel_id": 1,
+        "room_id": 1,
+        "price": 600.50,
+        "name": "Oda Kahvaltı",
+        "open_for_sale": 0
+    },
+    {
+        "id": 3,
+        "hotel_id": 1,
+        "room_id": 1,
+        "price": 700,
+        "name": "Yarım Pansiyon",
+        "open_for_sale": 1
+    },
+    {
+        "id": 4,
+        "hotel_id": 1,
+        "room_id": 1,
+        "price": 800,
+        "name": "Tam Pansiyon",
+        "open_for_sale": 1
+    },
+    {
+        "id": 5,
+        "hotel_id": 1,
+        "room_id": 2,
+        "price": 700,
+        "name": "Oda Kahvaltı",
+        "open_for_sale": 1
+    },
+    {
+        "id": 6,
+        "hotel_id": 1,
+        "room_id": 2,
+        "price": 800,
+        "name": "Tam Pansiyon",
+        "open_for_sale": 1
+    },
+    {
+        "id": 7,
+        "hotel_id": 2,
+        "room_id": 4,
+        "price": 100,
+        "name": "Sadece Oda",
+        "open_for_sale": 1
+    },
+    {
+        "id": 8,
+        "hotel_id": 2,
+        "room_id": 5,
+        "price": 200,
+        "name": "Tam Pansiyon",
+        "open_for_sale": 1
+    },
+    {
+        "id": 9,
+        "hotel_id": 2,
+        "room_id": 6,
+        "price": 5000,
+        "name": "Herşey Dahil",
+        "open_for_sale": 1
+    },
+    {
+        "id": 10,
+        "hotel_id": 3,
+        "room_id": 7,
+        "price": 1500,
+        "name": "Tam Pansiyon Plus",
+        "open_for_sale": 1
+    }
+]

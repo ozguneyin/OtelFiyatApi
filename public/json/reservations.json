@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "customer_id": 1,
+        "hotel_id": 1,
+        "room_id": 1,
+        "concept_id": 1,
+        "total_nights": 1,
+        "price_per_night": 500.10,
+        "total_price": 500.10
+    },
+    {
+        "id": 2,
+        "customer_id": null,
+        "hotel_id": 1,
+        "room_id": 1,
+        "concept_id": 4,
+        "total_nights": 4,
+        "price_per_night": 800,
+        "total_price": 3200
+    },
+    {
+        "id": 3,
+        "customer_id": 3,
+        "hotel_id": 2,
+        "room_id": 4,
+        "concept_id": 9,
+        "total_nights": 7,
+        "price_per_night": 5000,
+        "total_price": 35000
+    }
+]

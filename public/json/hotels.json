@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "May Thermal Resort Spa",
+        "district_id": 1
+    },
+    {
+        "id": 2,
+        "name": "Susesi Luxury Resort",
+        "district_id": 2
+    },
+    {
+        "id": 3,
+        "name": "Swissotel Büyük Efes İzmir",
+        "district_id": 3
+    }
+]

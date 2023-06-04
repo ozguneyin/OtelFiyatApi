@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "hotel_id": 1,
+        "name": "Deluxe Oda"
+    },
+    {
+        "id": 2,
+        "hotel_id": 1,
+        "name": "Superior Oda"
+    },
+    {
+        "id": 3,
+        "hotel_id": 1,
+        "name": "Family Oda"
+    },
+    {
+        "id": 4,
+        "hotel_id": 2,
+        "name": "Deluxe Oda Kara Manzara"
+    },
+    {
+        "id": 5,
+        "hotel_id": 2,
+        "name": "Deluxe Oda Deniz Manzara"
+    },
+    {
+        "id": 6,
+        "hotel_id": 2,
+        "name": "Klasik Oda Şehir Manzaralı"
+    },
+    {
+        "id": 7,
+        "hotel_id": 3,
+        "name": "Şehir Manzaralı Oda"
+    }
+]
