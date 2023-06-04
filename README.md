@@ -11,7 +11,7 @@
 
 Migrate komuduyla veritabanları oluşturulabilir.
 
-```http
+```bash
   php artisan migrate
 ```
 
