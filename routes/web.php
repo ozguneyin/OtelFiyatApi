@@ -44,4 +44,5 @@ Route::post('/api/rezervasyon-ekle', [Api::class, 'RezervasyonEkle'])->name("rez
 
 Route::get('/rezervasyon-ekle', [Rezervasyon::class, 'ekle'])->name("rez_ekle");                
 
-Route::get('/check_room', [Rezervasyon::class, 'check_room'])->name("check_room");                
+Route::post('/check_room', [Rezervasyon::class, 'check_room'])->name("check_room");                
+Route::post('/check_concepts', [Rezervasyon::class, 'check_concepts'])->name("check_concepts");

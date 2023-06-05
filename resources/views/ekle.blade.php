@@ -98,35 +98,35 @@
       <div class="mb-3 row">
         <label for="room_id" class="col-sm-2 col-form-label">Oda</label>
         <div class="col-sm-10">
-          <select class="form-control" name="room_id"></select>
+          <select class="form-control" id="room_id" name="room_id"></select>
         </div>
       </div>     
 
       <div class="mb-3 row">
         <label for="concept_id" class="col-sm-2 col-form-label">Konsept</label>
         <div class="col-sm-10">
-          <select class="form-control" name="concept_id"></select>
+          <select class="form-control" id="concept_id" name="concept_id"></select>
         </div>
       </div>    
 
       <div class="mb-3 row">
         <label for="price_per_night" class="col-sm-2 col-form-label">Gece Fiyatı</label>
         <div class="col-sm-10">
-          <select class="form-control" name="price_per_night"></select>
+          <input class="form-control" type="text" name="price_per_night" id="price_per_night" />
         </div>
       </div>    
 
       <div class="mb-3 row">
         <label for="total_nights" class="col-sm-2 col-form-label">Toplam Gece Sayısı</label>
         <div class="col-sm-10">
-          <select class="form-control" name="total_nights"></select>
+          <input class="form-control" type="text" name="total_nights" id="total_nights" />
         </div>
       </div>  
 
       <div class="mb-3 row">
         <label for="total_price" class="col-sm-2 col-form-label">Toplam Ücret</label>
         <div class="col-sm-10">
-          <select class="form-control" name="total_price"></select>
+          <input class="form-control" type="text" name="total_price" id="total_price" />
         </div>
       </div>    
 
@@ -148,16 +148,65 @@
 
 <script language="javascript">
 	$('#hotel_id').on('change','',function(){
+    var hotel_id = $(this).val();
     $.ajax({
   method: "POST",
   url: "{{ route('check_room') }}",
-  dataType: "jsonp",
-  data: { name: "John", location: "Boston" }
+  dataType: "json",
+  data: { hotel_id: hotel_id, _token: "{{ csrf_token() }}" }
 })
-  .done(function( msg ) {
-    alert( "Data Saved: " + msg );
+  .done(function( dt ) {
+
+    $("#room_id").html('').append('<option value="">Seçiniz</option>');
+
+    $.each(dt, function( index, value ) {
+      $("#room_id").append('<option value="'+index+'">'+value.name+'</option>');
+    });
+
   });
   });
+
+	$('#room_id').on('change','',function(){
+    var room_id = $(this).val();
+    var hotel_id = $('#hotel_id').val();
+    console.log(room_id);
+    console.log(hotel_id);
+    $.ajax({
+  method: "POST",
+  url: "{{ route('check_concepts') }}",
+  dataType: "json",
+  data: { hotel_id: hotel_id, room_id: room_id, _token: "{{ csrf_token() }}" }
+})
+  .done(function( dt ) {
+
+    $("#concept_id").html('').append('<option value="">Seçiniz</option>');
+
+    $.each(dt, function( index, value ) {
+      $("#concept_id").append('<option value="'+index+'" price="'+value.price+'">'+value.name+'</option>');
+    });
+
+
+  });
+  });  
+
+  $('#concept_id').on('change','',function(){
+    var concept_id = $('#concept_id').val();
+    var price = $('#concept_id option').filter(':selected').attr('price');
+    $("#price_per_night").val(price);
+  });
+
+  $("#total_nights").on('change keyup','',function(){
+    var price_per_night = parseFloat($("#price_per_night").val());
+    var total_nights = parseFloat($("#total_nights").val());
+  
+    if ($("#total_nights").val()=="") { $("#total_nights").val(0); $("#total_price").val(0); }
+    var toplam_ucret = (price_per_night)*(total_nights);
+    if(!isNaN(toplam_ucret)){
+      $("#total_price").val(toplam_ucret);
+    }
+    
+  });
+
 </script>
 </body>
 </html>
