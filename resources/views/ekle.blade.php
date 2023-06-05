@@ -50,12 +50,13 @@
     </div> 
 
     <?
-
   }
 ?>
 
 </div>
 
+
+<?  if ($request->user_id!=""){ ?>
 
 <div class="row">
       <div class="col">
@@ -69,9 +70,8 @@
         </div>
        </div>
   
-      <form action="{{ route('ekle') }}" method="post">
+      <form action="{{ route('rezervasyon_ekle') }}" method="post">
       @csrf
-
 
       <div class="mb-3 row">
         <label for="staticCustomer" class="col-sm-2 col-form-label">Müşteri</label>
@@ -142,6 +142,8 @@
     </div>
     </div>
 </div>
+
+<?}?>
 <script language="javascript">
 	$('#hotel_id').on('change','',function(){
     alert('merhaba');

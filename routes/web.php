@@ -40,4 +40,6 @@ Route::get('/rezervasyon-listele/{user_id}', [Rezervasyon::class, 'listele'])
                 });                
 
 Route::post('/api/rezervasyon-sorgula', [Api::class, 'RezervasyonSorgula'])->name("sorgula");                
-Route::post('/api/rezervasyon-ekle', [Api::class, 'RezervasyonEkle'])->name("ekle");                
+Route::post('/api/rezervasyon-ekle', [Api::class, 'RezervasyonEkle'])->name("rezervasyon_ekle");                
+
+Route::get('/rezervasyon-ekle', [Rezervasyon::class, 'ekle'])->name("rez_ekle");                
