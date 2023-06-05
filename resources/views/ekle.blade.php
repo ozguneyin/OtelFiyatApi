@@ -144,9 +144,13 @@
 </div>
 
 <?}?>
+
+<?
+print_r($rooms);
+?>
 <script language="javascript">
 	$('#hotel_id').on('change','',function(){
-    alert('merhaba');
+    
   });
 </script>
 </body>

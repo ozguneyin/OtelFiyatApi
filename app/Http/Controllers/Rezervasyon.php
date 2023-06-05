@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Rezervasyon extends Controller
 {
+
+    public function check_room(Request $request){
+       
+    }
+
     public function ekle(Request $request){
 
         if ($request->user_id==""){
@@ -17,8 +22,9 @@ class Rezervasyon extends Controller
         }
 
         $hotels = DB::table('hotels')->get();
+        $rooms = DB::table('rooms')->get();
         
-        return view('ekle',['request'=>$request,'data'=>$users,'hotels'=>$hotels]);
+        return view('ekle',['request'=>$request,'data'=>$users,'hotels'=>$hotels,'rooms'=>$rooms]);
 
     }
 
