@@ -22,9 +22,8 @@ class Rezervasyon extends Controller
         }
 
         $hotels = DB::table('hotels')->get();
-        $rooms = DB::table('rooms')->get();
         
-        return view('ekle',['request'=>$request,'data'=>$users,'hotels'=>$hotels,'rooms'=>$rooms]);
+        return view('ekle',['request'=>$request,'data'=>$users,'hotels'=>$hotels]);
 
     }
 

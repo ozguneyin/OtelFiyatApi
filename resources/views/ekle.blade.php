@@ -145,12 +145,18 @@
 
 <?}?>
 
-<?
-print_r($rooms);
-?>
+
 <script language="javascript">
 	$('#hotel_id').on('change','',function(){
-    
+    $.ajax({
+  method: "POST",
+  url: "{{ route('check_room') }}",
+  dataType: "jsonp",
+  data: { name: "John", location: "Boston" }
+})
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  });
   });
 </script>
 </body>

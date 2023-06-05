@@ -43,3 +43,5 @@ Route::post('/api/rezervasyon-sorgula', [Api::class, 'RezervasyonSorgula'])->nam
 Route::post('/api/rezervasyon-ekle', [Api::class, 'RezervasyonEkle'])->name("rezervasyon_ekle");                
 
 Route::get('/rezervasyon-ekle', [Rezervasyon::class, 'ekle'])->name("rez_ekle");                
+
+Route::get('/check_room', [Rezervasyon::class, 'check_room'])->name("check_room");                
