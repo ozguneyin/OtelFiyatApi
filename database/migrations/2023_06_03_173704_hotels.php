@@ -20,6 +20,7 @@ class Hotels extends Migration
         Schema::dropIfExists('reservations');
         Schema::dropIfExists('rooms');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('reservation_discounts');
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
@@ -61,6 +62,13 @@ class Hotels extends Migration
             $table->integer('total_nights');
             $table->float('price_per_night');
             $table->float('total_price');
+        });   
+
+        Schema::create('reservation_discounts', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('reservation_id');
+            $table->string('discount_reason');
+            $table->float('discount_amount');
         });   
 
         Schema::create('rooms', function (Blueprint $table) {
