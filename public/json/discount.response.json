@@ -2,7 +2,7 @@
     "order_id": 3,
     "discounts": [
         {
-            "discount_reason": "BUY_6_GET_1",
+            "discountReason": "BUY_6_GET_1",
             "discountAmount": "5000",
             "subtotal": "30000"
         },

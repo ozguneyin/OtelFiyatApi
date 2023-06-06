@@ -11,19 +11,42 @@ class Api extends Controller
     
     $arr = array();
     if ($request->token==sha1("ozguneyin")){
-    
-    $reservations = DB::table('reservations')->where('customer_id',$request->customer_id)->get();
 
-    $reservation_discounts = DB::select("select d.* from reservation_discounts as d left join reservations as r ON d.reservation_id=r.id 
-                                            where r.customer_id='".$request->customer_id."' GROUP by d.id");
-
-    $arr["reservation_data"] = $reservations;
     $arr["status"] = "1";
-    $arr["message"] = "Sorgulama Basarili";
+    $arr["message"] = "Sorgulama Basarili";    
+    
+    $reservations = DB::select("select id as order_id, customer_id, hotel_id, room_id, concept_id, total_nights, price_per_night, total_price  from reservations where customer_id='".$request->customer_id."'");
+    if(is_array($reservations) && count($reservations)>0){
+        foreach ($reservations as $rid=>$rv){
+            $arr["reservations"][$rid]["order_id"] = $rv->order_id;
+            $arr["reservations"][$rid]["customer_id"] = $rv->customer_id;
+            $arr["reservations"][$rid]["hotel_id"] = $rv->hotel_id;
+            $arr["reservations"][$rid]["room_id"] = $rv->room_id;
+            $arr["reservations"][$rid]["concept_id"] = $rv->concept_id;
+            $arr["reservations"][$rid]["total_nights"] = $rv->total_nights;
+            $arr["reservations"][$rid]["price_per_night"] = $rv->price_per_night;
+            $arr["reservations"][$rid]["total_price"] = $rv->total_price;
+
+            $discounts = array();
+            $reservation_discounts = DB::select("select d.reservation_id, d.discount_reason, d.discount_amount from reservation_discounts as d left join reservations as r ON d.reservation_id=r.id where r.customer_id='".$request->customer_id."' and d.reservation_id = '".$rv->order_id."' GROUP by d.id");
+            if(is_array($reservation_discounts) && count($reservation_discounts)>0){
+                foreach ($reservation_discounts as $rid=>$rv){
+                $discounts[$rid]["discountReason"] = $rv->discount_reason;
+                $discounts[$rid]["discountAmount"] = $rv->discount_amount;
+                }
+            }    
+
+            $arr["reservations"][$rid]["discounts"] = $discounts;
+        }
+    }
+
+
+
     } else {
-    $arr["reservation_data"] = array();
+
     $arr["status"] = "0";
     $arr["message"] = "Sorgulama Basarisiz, Token Yanlis";
+    
     }
     return response()->json($arr); 
 
