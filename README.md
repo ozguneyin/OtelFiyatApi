@@ -9,7 +9,7 @@
 
 ## About Laravel
 
-Migrate komuduyla veritabanları oluşturulabilir.
+Migrate komutuyla veritabanları oluşturulabilir.
 
 ```bash
   php artisan migrate
