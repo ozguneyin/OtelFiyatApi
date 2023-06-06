@@ -160,7 +160,7 @@
     $("#room_id").html('').append('<option value="">Seçiniz</option>');
 
     $.each(dt, function( index, value ) {
-      $("#room_id").append('<option value="'+index+'">'+value.name+'</option>');
+      $("#room_id").append('<option value="'+value.id+'">'+value.name+'</option>');
     });
 
   });
@@ -182,7 +182,7 @@
     $("#concept_id").html('').append('<option value="">Seçiniz</option>');
 
     $.each(dt, function( index, value ) {
-      $("#concept_id").append('<option value="'+index+'" price="'+value.price+'">'+value.name+'</option>');
+      $("#concept_id").append('<option value="'+value.id+'" price="'+value.price+'">'+value.name+'</option>');
     });
 
 

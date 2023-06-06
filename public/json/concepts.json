@@ -78,5 +78,13 @@
         "price": 1500,
         "name": "Tam Pansiyon Plus",
         "open_for_sale": 1
+    },
+    {
+        "id": 11,
+        "hotel_id": 3,
+        "room_id": 7,
+        "price": 400,
+        "name": "En Ucuz Hoteller",
+        "open_for_sale": 1
     }
 ]
