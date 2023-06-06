@@ -37,10 +37,6 @@ class Rezervasyon extends Controller
         return view('ekle',['request'=>$request,'data'=>$users,'hotels'=>$hotels]);
 
     }
-
-    public function sil(){
-        
-    }
     
     public function listele(Request $request){
 
@@ -54,4 +50,19 @@ class Rezervasyon extends Controller
         return view('listele',['request'=>$request,'data'=>$users]);
         
     } 
+
+    public function sil(Request $request){
+
+        $reservations = DB::select('SELECT r.*, c.name as customer_name, h.name as hotel_name, ro.name as room_name, co.name as concept_name FROM reservations as r                                    left join customers as c ON r.customer_id=c.id
+                                                left join hotels as h ON r.hotel_id=h.id
+                                                left join rooms as ro ON r.room_id=ro.id
+                                                left join concepts as co ON r.concept_id=co.id
+                                            ');
+
+        
+        
+        return view('sil',['request'=>$request,'reservations'=>$reservations]);
+        
+    } 
+
 }

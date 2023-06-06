@@ -7,6 +7,37 @@ use Illuminate\Support\Facades\DB;
 
 class Api extends Controller
 {
+
+    public function RezervasyonSil(Request $request){
+
+        if ($request->token==sha1("ozguneyin")){
+
+            $reservations = DB::table('reservations')->where('id',$request->reservation_id)->get();
+            $sayisi = count($reservations);
+            if ($sayisi=="0"){
+                
+                $arr["status"] = "0";
+                $arr["message"] = "Belirtilen Rezervasyon Bulunamadi";
+
+            } else {
+
+                DB::table('reservations')->where('id',$request->reservation_id)->delete();
+
+                $arr["status"] = "1";
+                $arr["message"] = "Belirtilen Rezervasyon Basariyla Silindi";
+            }
+           
+        } else {
+
+        $arr["status"] = "0";
+        $arr["message"] = "Silme Basarisiz, Token Yanlis";
+
+        }
+
+        return response()->json($arr); 
+
+    }
+
     public function RezervasyonSorgula(Request $request){
     
     $arr = array();
@@ -46,7 +77,7 @@ class Api extends Controller
 
     $arr["status"] = "0";
     $arr["message"] = "Sorgulama Basarisiz, Token Yanlis";
-    
+
     }
     return response()->json($arr); 
 

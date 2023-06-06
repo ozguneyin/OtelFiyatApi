@@ -32,6 +32,7 @@ Route::get('/rezervasyon/{user_id}', [Rezervasyon::class, 'ekle'])
 
 
 Route::get('/rezervasyon-listele', [Rezervasyon::class, 'listele'])->name("listele");
+Route::get('/rezervasyon-sil', [Rezervasyon::class, 'sil'])->name("sil");
 
 Route::get('/rezervasyon-listele/{user_id}', [Rezervasyon::class, 'listele'])
                 ->name('user_id')
@@ -41,6 +42,7 @@ Route::get('/rezervasyon-listele/{user_id}', [Rezervasyon::class, 'listele'])
 
 Route::post('/api/rezervasyon-sorgula', [Api::class, 'RezervasyonSorgula'])->name("sorgula");                
 Route::post('/api/rezervasyon-ekle', [Api::class, 'RezervasyonEkle'])->name("rezervasyon_ekle");                
+Route::post('/api/rezervasyon-sil', [Api::class, 'RezervasyonSil'])->name("rezervasyon_sil");                
 
 Route::get('/rezervasyon-ekle', [Rezervasyon::class, 'ekle'])->name("rez_ekle");                
 
