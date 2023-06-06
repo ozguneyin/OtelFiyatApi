@@ -11,10 +11,11 @@ class Api extends Controller
     
     $arr = array();
     if ($request->token==sha1("ozguneyin")){
+    
     $reservations = DB::table('reservations')->where('customer_id',$request->customer_id)->get();
 
-    //DB::table('reservation_discounts')->where('reservation_id',)
-
+    $reservation_discounts = DB::select("select d.* from reservation_discounts as d left join reservations as r ON d.reservation_id=r.id 
+                                            where r.customer_id='".$request->customer_id."' GROUP by d.id");
 
     $arr["reservation_data"] = $reservations;
     $arr["status"] = "1";

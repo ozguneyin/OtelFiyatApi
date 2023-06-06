@@ -24,7 +24,7 @@
     ?>
     <div class="row"> 
       <div class="col">
-        <div class="alert alert-primary" role="alert">Rezervasyon Yapacak Kullanıcıyı Seçin</div>
+        <div class="alert alert-primary" role="alert">Rezervasyon Yapacak Kullanıcıyı Seçin <a class="btn btn-sm btn-info" href="{{ URL::to('/') }}"><<< Geri</a></div> 
       </div>
     </div>   
     <?
